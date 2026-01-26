@@ -14,17 +14,16 @@ ingredients_list = set()    # Define ingredients list as a set to avoid duplicat
 # Function to take recipe input from user
 # Returns a single recipe dictionary
 def take_recipe ():
-#    try:
-    name = input("Enter the recipe name: ")
-    cooking_time = int(input("Enter the cooking time (in minutes): "))
-    ingredients = []
-    
-    print("Enter the ingredient list divided by commas.")
-    ingredients_input = input("Ingredients: ")
-    ingredients = [ingredient.strip() for ingredient in ingredients_input.split(",")]
-#    except ValueError:
-#        print("Invalid input. Please enter the correct data types.")
-#        return None
+    try:
+        name = input("Enter the recipe name: ")
+        cooking_time = int(input("Enter the cooking time (in minutes): "))
+        ingredients = []
+        print("Enter the ingredient list divided by commas.")
+        ingredients_input = input("Ingredients: ")
+        ingredients = [ingredient.strip() for ingredient in ingredients_input.split(",")]
+    except ValueError:
+        print("Invalid input. Please enter the correct data types.")
+        return None
 
     # Create recipe as a dictionary
     recipe = {
@@ -37,6 +36,7 @@ def take_recipe ():
     return recipe
 
 # Function to calculate recipe difficulty based on cooking time and number of ingredients
+# Returns difficulty level as a string
 def calculate_difficulty(time, num_ingredients):
     if time < 10:                   # Cooking time less than 10 minutes
         if num_ingredients < 4:     # Less than 4 ingredients
