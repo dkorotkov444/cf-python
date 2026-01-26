@@ -5,7 +5,7 @@
 # Finally, the program stores all details of each recipe into a binary file.
 # The script can be run again later to add more recipes.
 
-# Import pickle module for potential future use
+# Import pickle module
 import pickle
 
 recipes_list = []               # Define recipes list to store multiple recipes
@@ -56,7 +56,9 @@ def calc_difficulty(time, num_ingredients):
             difficulty = 'Hard'
 
     return difficulty
-    
+
+# Main program execution
+   
 # Open existing binary file to load previous recipes (if any)
 try:
     # Prompt user for binary file name
