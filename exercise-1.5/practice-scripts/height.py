@@ -34,22 +34,17 @@ class Height(object):
         # Converting both objects' heights into inches
         height_self_inches = self.feet * 12 + self.inches
         height_other_inches = other.feet * 12 + other.inches
-        print("\nHeight A inches:", height_self_inches)
-        print("\nHeight B_ inches:", height_other_inches)
 
         # Subtracting them
         diff_inches = height_self_inches - height_other_inches
-        print("\nDifference in inches:", diff_inches)
         abs_diff_inches = abs(diff_inches)
-        print("\nAbsolute difference in inches:", abs_diff_inches)
+
         # Getting the output in feet
         output_feet = abs_diff_inches // 12
-        print("\nOutput feet:", output_feet)
         # Getting the output in inches
         output_inches = abs_diff_inches % 12
-        print("\nOutput inches:", output_inches)
-        # Returning the final output as a new Height object
 
+        # Returning the final output as a new Height object
         # If the result was negative, make the feet negative to indicate "shorter"
         if diff_inches < 0:
             output_feet = -output_feet
@@ -59,22 +54,65 @@ class Height(object):
 
         return Height(output_feet, output_inches)
 
-# Main script to demonstrate the Height class functionality
-print("=== Height Class Practice Script ===")
+    # Methods to compare two Height objects
+    def __lt__(self, other):
+        height_self_inches = self.feet * 12 + self.inches
+        height_other_inches = other.feet * 12 + other.inches
+        return height_self_inches < height_other_inches
 
-print("\nStep 1: Create two Height instances based on user input.")
+    def __le__(self, other):
+        height_self_inches = self.feet * 12 + self.inches
+        height_other_inches = other.feet * 12 + other.inches
+        return height_self_inches <= height_other_inches
+    
+    def __gt__(self, other):
+        height_self_inches = self.feet * 12 + self.inches
+        height_other_inches = other.feet * 12 + other.inches
+        return height_self_inches > height_other_inches
+    
+    def __ge__(self, other):
+        height_self_inches = self.feet * 12 + self.inches
+        height_other_inches = other.feet * 12 + other.inches
+        return height_self_inches >= height_other_inches
+
+    def __eq__(self, other):
+        height_self_inches = self.feet * 12 + self.inches
+        height_other_inches = other.feet * 12 + other.inches
+        return height_self_inches == height_other_inches
+    
+    def __ne__(self, other):
+        height_self_inches = self.feet * 12 + self.inches
+        height_other_inches = other.feet * 12 + other.inches
+        return height_self_inches != height_other_inches
+    
 # Create two Height instances based on user input
+print("\nStep 1: Create two Height instances based on user input.")
 raw_a = input("Enter person A's height (feet,inches): ").split(",")
 person_A_height = Height(int(raw_a[0]), int(raw_a[1]))
 raw_b = input("Enter person B's height (feet,inches): ").split(",")
 person_B_height = Height(int(raw_b[0]), int(raw_b[1]))
 
+# Select a comparison operation
+print("\nStep 2: Select a comparison operation.")
+operator = str(input("Enter a comparison operator (>, >= or !=): "))
+
 # Calculate the height difference
-print("\nStep 2: Calculate the height difference.")
-height_difference = person_A_height - person_B_height
+# print("\nStep 2: Calculate the height difference.")
+# height_difference = person_A_height - person_B_height
 
 # Display the heights and the difference
-print("\nStep 3: Display the heights and the difference.")
-print("Person A's height:", person_A_height.__str__())
-print("Person B's height:", person_B_height.__str__())
-print("Height difference:", height_difference.__str__())
+# print("\nStep 3: Display the heights and the difference.")
+# print("Person A's height:", person_A_height.__str__())
+# print("Person B's height:", person_B_height.__str__())
+# print("Height difference:", height_difference.__str__())
+
+# Compare the two heights
+print("\nStep 3: Compare the two heights.")
+if operator == ">":
+    print(f"\n{person_A_height.__str__()} > {person_B_height.__str__()}: {person_A_height > person_B_height}")
+elif operator == ">=":
+    print(f"{person_A_height.__str__()} >= {person_B_height.__str__()}: {person_A_height >= person_B_height}")
+elif operator == "!=":
+    print(f"{person_A_height.__str__()} != {person_B_height.__str__()}: {person_A_height != person_B_height}")
+else:
+    print("Invalid operator entered.")
