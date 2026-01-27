@@ -102,17 +102,17 @@ operator = str(input("Enter a comparison operator (>, >= or !=): "))
 
 # Display the heights and the difference
 # print("\nStep 3: Display the heights and the difference.")
-# print("Person A's height:", person_A_height.__str__())
-# print("Person B's height:", person_B_height.__str__())
-# print("Height difference:", height_difference.__str__())
+# print("Person A's height:", person_A_height)
+# print("Person B's height:", person_B_height)
+# print("Height difference:", height_difference)
 
 # Compare the two heights
 print("\nStep 3: Compare the two heights.")
 if operator == ">":
-    print(f"\n{person_A_height.__str__()} > {person_B_height.__str__()}: {person_A_height > person_B_height}")
+    print(f"\n{person_A_height} > {person_B_height}: {person_A_height > person_B_height}")
 elif operator == ">=":
-    print(f"{person_A_height.__str__()} >= {person_B_height.__str__()}: {person_A_height >= person_B_height}")
+    print(f"{person_A_height} >= {person_B_height}: {person_A_height >= person_B_height}")
 elif operator == "!=":
-    print(f"{person_A_height.__str__()} != {person_B_height.__str__()}: {person_A_height != person_B_height}")
+    print(f"{person_A_height} != {person_B_height}: {person_A_height != person_B_height}")
 else:
     print("Invalid operator entered.")
