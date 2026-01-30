@@ -9,7 +9,7 @@ recipe_1 = {
 recipe_1 = {
     "name": "Tea",
     "cooking_time": 5,
-    "ingredients": ["Tea leaves", "Sugar", "Water"],
+    "ingredients": ['Tea leaves', 'Sugar', 'Water'],
 }
 
 # Step 3: Create an outer structure and add the first recipe
