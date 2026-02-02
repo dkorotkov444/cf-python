@@ -262,8 +262,19 @@ def update_recipe():
         (2) Ingredients: {recipe_to_edit.ingredients}
         (3) Cooking time: {recipe_to_edit.cooking_time}
     Difficulty will be recalculated automatically after any change.''')
-    columns_input = input("Selection (example: 1,3): ").strip()
-    columns_to_update = [col.strip() for col in columns_input.split(',')]
+    while True:
+        columns_input = input("Selection (example: 1,3): ").strip()
+        columns_to_update = [col.strip() for col in columns_input.split(',') if col.strip()]
+        if not columns_to_update:
+            print("Input cannot be empty. Please enter 1, 2, or 3, separated by commas.")
+            continue
+        if not set(columns_to_update).issubset({'1', '2', '3'}):
+            print("Only 1, 2, or 3 are allowed. Please try again.")
+            continue
+        if len(set(columns_to_update)) != len(columns_to_update):
+            print("Duplicate columns are not allowed. Please try again.")
+            continue
+        break
 
     # Update local variables based on choice with input validation
     if '1' in columns_to_update:
