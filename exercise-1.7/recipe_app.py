@@ -4,7 +4,7 @@
 # ====== IMPORTS ======
 # Import necessary SQLAlchemy components
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column
 from sqlalchemy.types import Integer, String
 from sqlalchemy.orm import sessionmaker
@@ -35,11 +35,10 @@ class Recipe(Base):
     
     # Detailed string representation of the Recipe object
     def __str__(self):
-        return (f"\nRecipe Name: {self.name}\n"
+        return (f"Recipe Name: {self.name}\n"
                 f"\tCooking Time: {self.cooking_time} minutes\n"
                 f"\tIngredients: {self.ingredients}\n"
-                f"\tDifficulty: {self.difficulty}\n"
-                "-" * 80)
+                f"\tDifficulty: {self.difficulty}\n")
     
     # Method to return ingredients as a list
     def return_ingredients_as_list(self):
@@ -319,7 +318,8 @@ Base.metadata.create_all(engine)
 
 # Count existing recipes in the recipes table
 existing_count = session.query(Recipe).count()
-print(f"MySQL database connected! There are {existing_count} recipes in the existing table.\n")
+print("\nWelcome to the Recipe Management Application!")
+print(f"MySQL database connected. There are {existing_count} recipes in the existing table.\n")
 
 # Display main menu and handle user choices
 choice = ''
@@ -327,12 +327,12 @@ try:
     while choice != 'quit':
         print("\nMain Menu:\n" + "="*60)
         print('''Choose an operation:
-        \t1. Create a new recipe
-        \t2. View all recipes      
-        \t3. Search for recipes by ingredients
-        \t4. Edit an existing recipe
-        \t5. Delete a recipe
-        Type 'quit' to exit the application''')
+        1. Create a new recipe
+        2. View all recipes      
+        3. Search for recipes by ingredients
+        4. Edit an existing recipe
+        5. Delete a recipe''')
+        print("Type 'quit' to exit the application")
         print("="*60)
         choice = input("Your choice: ").strip().lower()
 
@@ -350,9 +350,9 @@ try:
             # Close the session and engine before exiting
             session.close()
             engine.dispose()
-            print("Database connection closed. \nExiting the program. Goodbye!")
+            print("\nDatabase connection closed. \nExiting the program. Goodbye!")
         else:
-            print("Wrong choice. Please try again.")
+            print("Plese enter a number from the menu or type 'quit'.")
 except Exception as e:
     print(f"An unexpected error occurred: {e}")
     # Cleanup before exiting
