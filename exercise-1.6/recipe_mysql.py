@@ -107,7 +107,7 @@ def search_recipe(conn, cursor):
         print("No recipes found in the database.")
         return
     
-    # Build the set of all unique ingredients
+    # Build the list of all unique ingredients
     for row in results:
         ingredients = row[0].split(', ')
         for ingredient in ingredients:
@@ -237,11 +237,11 @@ def delete_recipe(conn, cursor):
 choice = ''
 while choice != 'quit':
     print("\nMain Menu:\n" + "="*60)
-    print('''Pick a choice:")
-        1. Create a new recipe")
-        2. Search for a recipe by ingredient")
-        3. Update an existing recipe")
-        4. Delete a recipe")
+    print('''Pick a choice:
+        1. Create a new recipe
+        2. Search for a recipe by ingredient
+        3. Update an existing recipe
+        4. Delete a recipe
     Type 'quit' to exit the program''')
     print("="*60)
     choice = input("Your choice: ").strip().lower()
