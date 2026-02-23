@@ -93,6 +93,15 @@ To run any exercise script:
 
 After running a script in IPython, you can interact with its variables and functions.
 
+
+## Bookstore Application Test Data
+
+Book test data for the Bookstore application are placed in:
+
+  bookstore-root/sales/static/sales/data/test-books.json
+
+Use this file for loading or referencing sample book data in the application.
+
 ## Notes
 
 - Each exercise may include its own `requirements.txt`. Install dependencies per exercise as needed.
