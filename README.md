@@ -9,6 +9,17 @@ cf-python/
 ├── .git/               (Hidden Git metadata)
 ├── .gitignore          (Git ignore rules)
 ├── README.md           (This file)
+├── bookstore-root/     (Django Bookstore Application)
+│   ├── manage.py
+│   ├── db.sqlite3
+│   ├── bookstore/       (Main project settings)
+│   ├── books/           (Book management app)
+│   ├── sales/           (Sales records app)
+│   ├── customers/       (Customer management app)
+│   ├── salespersons/    (Salesperson management app)
+│   ├── templates/       (Project-level templates)
+│   ├── static/          (CSS, images, data files)
+│   └── media/           (Uploaded media files)
 ├── exercise-1.1/
 │   ├── add-1.1.py
 │   ├── requirements.txt
@@ -93,22 +104,53 @@ To run any exercise script:
 
 After running a script in IPython, you can interact with its variables and functions.
 
+## Bookstore Django Application
 
-## Bookstore Application Test Data
+The `bookstore-root/` folder contains a full Django web application for managing a bookstore, including inventory management, sales records, and user authentication.
 
-Book test data for the Bookstore application are placed in:
+### Running the Bookstore Application
 
-  bookstore-root/sales/static/sales/data/test-books.json
+1. **Navigate to the bookstore directory:**
+   ```powershell
+   cd bookstore-root
+   ```
 
-Use this file for loading or referencing sample book data in the application.
+2. **Activate the virtual environment** (if not already active):
+   ```powershell
+   .\..\venv\Scripts\Activate.ps1
+   ```
 
-## Notes
+3. **Start the development server:**
+   ```powershell
+   python manage.py runserver
+   ```
 
-- Each exercise may include its own `requirements.txt`. Install dependencies per exercise as needed.
-- If you prefer `cmd` instead of PowerShell, activate the venv using `\.venv\Scripts\activate.bat`.
-- Each exercise folder contains deliverables/ sub-folder for non-code exercise work - texts, screenchots, etc.
+4. **Access the application** at `http://127.0.0.1:8000/`
 
-## Exercise 1.2 Creating recipe data structures
+### Project Components
+
+- **books/**: Book catalog management (list, detail views)
+- **sales/**: Sales records and analytics with data visualizations
+- **customers/**: Customer information management
+- **salespersons/**: Salesperson profile management
+- **templates/**: Base template and project-level templates
+- **static/**: CSS, images, and static data files
+
+### Application Features
+
+- User authentication (login/logout)
+- Role-based access control (LoginRequiredMixin)
+- Sales data visualization using Pandas and chart generation
+- SQLite database with migrations
+- Bootstrap-based responsive UI
+
+### Static Assets
+
+Book cover images are stored in `bookstore-root/media/books/`. Homepage hero image is in `bookstore-root/static/images/bookstore.jpg`.
+
+## Exercise Descriptions
+
+### Exercise 1.2 Creating recipe data structures
 
 ### Data types selection
 1. Single recipe: dictionary.
@@ -141,3 +183,9 @@ Build a full-featured recipe CRUD (Create, Read, Update, Delete) application usi
 ## License
 
 This project is provided for educational purposes.
+
+## Notes
+
+- Each exercise may include its own `requirements.txt`. Install dependencies per exercise as needed.
+- If you prefer `cmd` instead of PowerShell, activate the venv using `\.venv\Scripts\activate.bat`.
+- Each exercise folder contains deliverables/ sub-folder for non-code exercise work - texts, screenshots, etc.
