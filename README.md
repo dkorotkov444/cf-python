@@ -6,10 +6,12 @@ This repository contains CareerFoundry Python coursework scripts for exercises `
 
 ```
 cf-python/
+├── .gitignore
 ├── README.md
+├── requirements.txt
 ├── exercise-1.1/
 │   ├── add-1.1.py
-│   └── requirements.txt
+│   └── requirements-1.1.txt
 ├── exercise-1.2/
 │   └── recipe_data.py
 ├── exercise-1.3/
@@ -31,8 +33,7 @@ cf-python/
 ├── exercise-1.6/
 │   └── recipe_mysql.py
 └── exercise-1.7/
-		└── practice-scripts/
-				└── orm_practice.py
+    └── orm_practice.py
 ```
 
 ## Prerequisites
@@ -53,8 +54,13 @@ python -m venv .venv
 Install currently used packages:
 
 ```powershell
-pip install -r exercise-1.1\requirements.txt
-pip install mysql-connector-python sqlalchemy pymysql
+pip install -r requirements.txt
+```
+
+Optional (for Exercise 1.1 IPython practice dependencies only):
+
+```powershell
+pip install -r exercise-1.1\requirements-1.1.txt
 ```
 
 If using Command Prompt instead of PowerShell:
@@ -75,7 +81,7 @@ python exercise-1.4\recipe_input.py
 python exercise-1.4\recipe_search.py
 python exercise-1.5\recipe_oop.py
 python exercise-1.6\recipe_mysql.py
-python exercise-1.7\practice-scripts\orm_practice.py
+python exercise-1.7\orm_practice.py
 ```
 
 ## Exercise Summary
@@ -95,12 +101,17 @@ python exercise-1.7\practice-scripts\orm_practice.py
 ## Data & Database Notes
 
 - `exercise-1.4/data/cookbook.bin` is a generated pickle data file used by the recipe file-storage workflow.
-- `exercise-1.6/recipe_mysql.py` and `exercise-1.7/practice-scripts/orm_practice.py` use MySQL credentials currently hardcoded as:
+- `exercise-1.6/recipe_mysql.py` and `exercise-1.7/orm_practice.py` use MySQL credentials currently hardcoded as:
 	- user: `cf-python`
 	- password: `75-Graffiti`
 	- host: `localhost`
 	- database: `recipes_db`
 - Ensure this MySQL user exists and has permissions to create/use `recipes_db` and tables.
+
+## Requirements Files
+
+- Root `requirements.txt` contains current project Python/Django dependencies (Django, pandas, matplotlib, gunicorn, whitenoise, and related packages).
+- `exercise-1.1/requirements-1.1.txt` contains IPython shell/practice-specific packages used in early exercise work.
 
 ## License
 
